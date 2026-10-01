@@ -12,6 +12,7 @@ duestreasury is a Stellar/Soroban project in three repositories:
 | `duestreasury-app` | web app (Vite + React + TypeScript) | scaffold only |
 | `duestreasury-docs` | mdBook documentation | scaffold only |
 
+**This is a custody project:** it holds funds on behalf of others. It is not independently reviewed; **do not use it with real funds.**
 
 ## What is here now
 
