@@ -49,10 +49,9 @@ contract lands:
 
 ## Decisions needed from Tim
 
-1. **Playbook v3 section 7 vs v4 doc set.** v3 section 7 defines the v0
-   contract scope and is authoritative for it; v4 adds the standard doc set
-   and error-sync checker on top. Build v0 from v3 section 7 plus the v4
-   layer, or wait for Tim's call.
+1. **Build standard — decided (2026-10-02).** v3 section 7 is the scope
+   authority for what the contract does; v4 plus the schoolfees repos are
+   the standard for how it is built (doc set, AGENTS.md, CI, checkers).
 2. **Second reviewer.** Name the second human reviewer required before any funded test.
 
 ## Explicitly out of scope
