@@ -22,6 +22,7 @@ is a shorter orientation.
 
 ## Checks to run before you push
 
-Once this repo has code, its checks are listed in `AGENTS.md` and run in CI.
-A change that breaks any of them is not ready. Until then, keep commits to
-documentation and hygiene so the history stays honest.
+Run every check in [TESTING.md](TESTING.md): formatting, all-target clippy,
+Rust tests, Node checker tests, error synchronization and Wasm build. CI
+runs the same checks. Keep the deployment block and second human custody
+review requirement intact; local tests do not authorize funded testing.

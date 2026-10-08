@@ -1,36 +1,7 @@
-# duestreasury — a Soroban treasury on Stellar testnet
+# DuesTreasury
 
-Status: **scaffold only.** No contract, no app, no book has been written yet.
-Testnet only, no real money, **no pilot has happened**, and this project has
-never run against a deployed contract. Do not use it with real funds.
+Implemented local v0 Soroban treasury: fixed members and signers, one dues payment per period, explicit proposal approvals, permissionless threshold execution, and proposer or threshold cancellation. **Testnet only; no real money. Not independently reviewed. Deployment is blocked pending a second human custody review. No pilot has happened.**
 
-duestreasury is a Stellar/Soroban project in three repositories:
+Contract entrypoints are in [src/lib.rs](src/lib.rs); caps are 100 members, 20 signers, periods up to 366 days. Tokens and amounts use atomic units; group balances equal received dues minus executed spending. [`cancel`](src/treasury.rs) takes explicit authorizer addresses, because spend approvals are not cancellation consent. Current period status does not calculate historical arrears.
 
-| Repo | Purpose | Status |
-|---|---|---|
-| `duestreasury-contracts` | Soroban contract (Rust) | scaffold only |
-| `duestreasury-app` | web app (Vite + React + TypeScript) | scaffold only |
-| `duestreasury-docs` | mdBook documentation | scaffold only |
-
-**This is a custody project:** it holds funds on behalf of others. It is not independently reviewed; **do not use it with real funds.**
-
-## What is here now
-
-Repository governance only, adapted from the completed `schoolfees` project:
-[AGENTS.md](AGENTS.md) (the rulebook for agents and humans),
-[CONTRIBUTING.md](CONTRIBUTING.md), [ROADMAP.md](ROADMAP.md) (what v0 will be,
-from the project's playbook section), MIT [LICENSE](LICENSE), `.gitignore`,
-`.gitattributes` (LF everywhere). No code yet; the first CI workflow lands
-with the first code that can pass it.
-
-## What v0 will be
-
-See [ROADMAP.md](ROADMAP.md). The scope is defined in the project's section of
-the build playbook; it is not invented here.
-
-## Honest limitations
-
-- Nothing is implemented, tested, audited or deployed.
-- The contract has never been compiled; the app has never run; the book has
-  never been built.
-- No pilot has happened and none is claimed anywhere in these repositories.
+See [TESTING.md](TESTING.md), [SECURITY.md](SECURITY.md), [ERRORS.md](ERRORS.md), [events](docs/events.md), [reuse decision](docs/decisions/0001-build-vs-reuse.md), and [deployment gate](DEPLOYMENT_CHECKLIST.md). Architecture lives in the [book repository](https://github.com/stellar-duestreasury/duestreasury-docs). App and contract have not been exercised together against a deployed instance.

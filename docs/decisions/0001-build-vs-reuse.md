@@ -1,0 +1,7 @@
+# Build versus reuse — 2026-10-08
+
+Reviewed the official [OpenZeppelin policies](https://docs.openzeppelin.com/stellar-contracts/accounts/policies), [Governor](https://docs.openzeppelin.com/stellar-contracts/governance/governor), and [Ownable](https://docs.openzeppelin.com/stellar-contracts/access/ownable) documentation before implementation.
+
+Smart-account threshold policies enforce authorization within smart-account context rules. Governor uses historical token voting power. Ownable assigns authority to one owner. None directly provides this project's fixed-address, separately recorded proposal approvals and per-member period dues ledger. Integrating those frameworks would change the v0 authorization and deployment model. We therefore implement bounded fixed signer approvals, using Soroban address authorization and the SDK token client rather than custom signature verification or a token implementation. This is a scope decision, not a claim of equivalent security or an audit. Independent human review remains required before funded tests; deployment is blocked.
+
+The only crate is `soroban-sdk`, pinned through Cargo.lock; no OpenZeppelin crate is added. Revisit smart accounts before membership changes or key rotation. Fixed membership avoids the signer/threshold divergence documented by OpenZeppelin, but lost signer keys can still permanently block spending. Cancellation uses the proposer's authorization or explicit authorization from a threshold-sized set of current signers; spend approvals do not count as cancellation consent.
