@@ -1,3 +1,9 @@
+<!-- project-brand -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/logo-dark.svg">
+  <img src="brand/logo.svg" alt="DuesTreasury" height="72">
+</picture>
+
 # DuesTreasury
 
 Implemented local v0 Soroban treasury: fixed members and signers, one dues payment per period, explicit proposal approvals, permissionless threshold execution, and proposer or threshold cancellation. **Testnet only; no real money. Not independently reviewed. Deployment is blocked pending a second human custody review. No pilot has happened.**
